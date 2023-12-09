@@ -1,6 +1,6 @@
 ﻿namespace HinweigeberRestApi.Services.MassnahmenService
 {
-    public class MassnahmenService
-    {
+    public class MassnahmenService : IMassnahmenServicecs
+	{
     }
 }

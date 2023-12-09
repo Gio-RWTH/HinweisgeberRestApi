@@ -15,5 +15,6 @@ namespace HinweigeberRestApi.Data
         public string Code { get; set; }
         public DateTime CreateDate { get; set; }
         public virtual ICollection<Meldung> Meldungen { get; set; }
-    }
+		public virtual Weitereinfo WeitereInfo { get; set; }
+	}
 }

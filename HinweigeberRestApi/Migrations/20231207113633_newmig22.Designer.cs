@@ -4,6 +4,7 @@ using HinweigeberRestApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HinweigeberRestApi.Migrations
 {
     [DbContext(typeof(HinweisDbContext))]
-    partial class HinweisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231207113633_newmig22")]
+    partial class newmig22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,15 +103,14 @@ namespace HinweigeberRestApi.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MassnahmeId")
+                    b.Property<int>("MeldungId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MassnahmeId")
-                        .IsUnique();
+                    b.HasIndex("MeldungId");
 
-                    b.ToTable("WeitereInfo");
+                    b.ToTable("Weitereinfo");
                 });
 
             modelBuilder.Entity("MassnahmeMeldung", b =>
@@ -129,13 +130,13 @@ namespace HinweigeberRestApi.Migrations
 
             modelBuilder.Entity("HinweigeberRestApi.Data.Weitereinfo", b =>
                 {
-                    b.HasOne("HinweigeberRestApi.Data.Massnahme", "Massnahme")
-                        .WithOne("WeitereInfo")
-                        .HasForeignKey("HinweigeberRestApi.Data.Weitereinfo", "MassnahmeId")
+                    b.HasOne("HinweigeberRestApi.Data.Meldung", "Meldung")
+                        .WithMany("Weitereinfos")
+                        .HasForeignKey("MeldungId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Massnahme");
+                    b.Navigation("Meldung");
                 });
 
             modelBuilder.Entity("MassnahmeMeldung", b =>
@@ -153,10 +154,9 @@ namespace HinweigeberRestApi.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HinweigeberRestApi.Data.Massnahme", b =>
+            modelBuilder.Entity("HinweigeberRestApi.Data.Meldung", b =>
                 {
-                    b.Navigation("WeitereInfo")
-                        .IsRequired();
+                    b.Navigation("Weitereinfos");
                 });
 #pragma warning restore 612, 618
         }

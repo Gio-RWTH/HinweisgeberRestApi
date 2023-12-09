@@ -1,4 +1,6 @@
 ﻿using HinweigeberRestApi.Areas.Massnahmen.Models;
+using HinweigeberRestApi.Areas.WeitereInfos.Models;
+using HinweigeberRestApi.Data;
 using System.ComponentModel.DataAnnotations;
 
 namespace HinweigeberRestApi.Areas.Meldungen.Models
@@ -11,7 +13,8 @@ namespace HinweigeberRestApi.Areas.Meldungen.Models
         [StringLength(10)]
         public string Code { get; set; }
         public string CreateDate { get; set; }
-        public int PartnerId { get; set; }
+		public bool isFinished { get; set; } = false;
+		public int PartnerId { get; set; }
         public List<MassnahmenReadDTO> Massnahmen { get; set; }
-    }
+	}
 }

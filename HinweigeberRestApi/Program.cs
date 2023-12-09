@@ -1,4 +1,9 @@
-﻿using HinweigeberRestApi.Data;
+﻿using AutoMapper;
+using HinweigeberRestApi.Areas.Massnahmen.Mapper;
+using HinweigeberRestApi.Data;
+using HinweigeberRestApi.Repository;
+using HinweigeberRestApi.Services.MassnahmenService;
+using HinweigeberRestApi.Services.MeldungenService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +24,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IMeldungenService, MeldungenService>();
+builder.Services.AddScoped<IMassnahmenServicecs, MassnahmenService>();
+builder.Services.AddAutoMapper(typeof(MassnahmenProfile));
 
 var app = builder.Build();
 
