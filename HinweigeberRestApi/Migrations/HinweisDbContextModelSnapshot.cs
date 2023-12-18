@@ -69,8 +69,8 @@ namespace HinweigeberRestApi.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PartnerId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PartnerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("isFinished")
                         .HasColumnType("bit");

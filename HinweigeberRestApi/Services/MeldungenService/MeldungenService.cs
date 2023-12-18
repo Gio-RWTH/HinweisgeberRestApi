@@ -6,6 +6,7 @@ using HinweigeberRestApi.Data;
 using HinweigeberRestApi.Repository;
 using HinweigeberRestApi.SharedModels;
 using HinweigeberRestApi.SharedModels.RequestsParameter.Paging;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace HinweigeberRestApi.Services.MeldungenService
@@ -45,6 +46,29 @@ namespace HinweigeberRestApi.Services.MeldungenService
 				meldung.Code = tmpCode;
 				var meldungModel = await _repositoryContext.Insert(meldung);
 				result.Result = _mapper.Map<MeldungenReadDTO>(meldungModel); ;
+			}
+			catch (Exception ex)
+			{
+				result.IsSuccess = false;
+				result.ErrorMessage = ex.Message;
+			}
+			return result;
+		}
+
+		public async Task<OperationResult> UpdateMeldung(MeldungUpdateDTO model)
+		{
+
+			var result = new OperationResult();
+			try
+			{
+				var meldung = await _repositoryContext.Get(p => p.Id == model.Id);
+				if (meldung != null)
+				{
+					meldung.Beschreibung = model.Beschreibung;
+					meldung.isFinished = model.isFinished;
+					//var meldung = _mapper.Map<Meldung>(model);
+					await _repositoryContext.Update(meldung);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -114,6 +138,30 @@ namespace HinweigeberRestApi.Services.MeldungenService
 			return result;
 		}
 
+		public async Task<OperationResult> UpdateWeitereInfo(WeitereInfoUpdateDTO model)
+		{
+
+			var result = new OperationResult();
+			try
+			{
+
+
+				var weitereinfo = await _repositoryWeitereInfoContext.Get(p => p.Id == model.Id);
+				if (weitereinfo != null)
+				{
+					weitereinfo.Beschreibung = model.Beschreibung;
+					//var weitereinfo = _mapper.Map<Weitereinfo>(model);
+					await _repositoryWeitereInfoContext.Update(weitereinfo);
+				}
+
+			}
+			catch (Exception ex)
+			{
+				result.IsSuccess = false;
+				result.ErrorMessage = ex.Message;
+			}
+			return result;
+		}
 
 		private string GenerateRandomDigits()
 		{

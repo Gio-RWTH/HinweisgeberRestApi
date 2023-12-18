@@ -14,7 +14,12 @@ namespace HinweigeberRestApi.Areas.Meldungen.Mapper
                 .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))
 				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
 
-            CreateMap<Meldung, MeldungenReadDTO>()
+			CreateMap<MeldungUpdateDTO, Meldung>()
+	            .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))
+	            .ForMember(p => p.Id, opt => opt.MapFrom(u => u.Id))
+				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
+
+			CreateMap<Meldung, MeldungenReadDTO>()
                 .ForMember(p => p.Id, opt => opt.MapFrom(u => u.Id))
                 .ForMember(p => p.PartnerId, opt => opt.MapFrom(u => u.PartnerId))
                 .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HinweigeberRestApi.Migrations
 {
     [DbContext(typeof(HinweisDbContext))]
-    [Migration("20231208155736_newmig33")]
-    partial class newmig33
+    [Migration("20231217234810_newMig11")]
+    partial class newMig11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,8 +71,8 @@ namespace HinweigeberRestApi.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PartnerId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PartnerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("isFinished")
                         .HasColumnType("bit");

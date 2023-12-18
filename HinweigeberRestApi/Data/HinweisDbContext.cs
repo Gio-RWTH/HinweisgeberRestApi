@@ -16,7 +16,5 @@ namespace HinweigeberRestApi.Data
 		public DbSet<Meldung> Meldungs => Set<Meldung>();
         public DbSet<Massnahme> Massnahmes => Set<Massnahme>();
 		public DbSet<Weitereinfo> WeitereInfo=> Set<Weitereinfo>();
-
-		protected
 	}
 }

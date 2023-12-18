@@ -12,5 +12,7 @@ namespace HinweigeberRestApi.Services.MeldungenService
 		Task<ReturnResult<IEnumerable<MeldungenReadDTO>>> GetMeldungen();
 		Task<ReturnResult<MeldungenReadDTO>> GetMeldungById(string code);
 		Task<ReturnResult<WeitereInfosReadDTO>> AddWeitereInfoZuMassnahme(WeitereInfoAddDTO model);
+		Task<OperationResult> UpdateMeldung(MeldungUpdateDTO model);
+		Task<OperationResult> UpdateWeitereInfo(WeitereInfoUpdateDTO model);
 	}
 }

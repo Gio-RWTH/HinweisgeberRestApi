@@ -6,6 +6,7 @@ using HinweigeberRestApi.Services.MassnahmenService;
 using HinweigeberRestApi.Services.MeldungenService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,13 @@ builder.Services.AddScoped<IMeldungenService, MeldungenService>();
 builder.Services.AddScoped<IMassnahmenServicecs, MassnahmenService>();
 builder.Services.AddAutoMapper(typeof(MassnahmenProfile));
 
+
+//builder.WebHost.UseKestrel(options =>
+//{
+//    options.Listen(IPAddress.Any, 5002); // Adjust the IP and port accordingly
+//});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,6 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseRouting(); // 👈👈it is new line
 
@@ -48,8 +58,8 @@ app.MapControllers();
 
 app.UseCors(x => x
 .SetIsOriginAllowed(_ => true)
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials());
+	.AllowAnyMethod()
+	.AllowAnyHeader()
+	.AllowCredentials());
 
 app.Run();

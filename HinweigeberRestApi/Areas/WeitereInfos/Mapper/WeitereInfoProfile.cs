@@ -16,6 +16,10 @@ namespace HinweigeberRestApi.Areas.WeitereInfos.Mapper
 				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => Convert.ToDateTime(u.CreateDate)))
 				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
 
+			CreateMap<WeitereInfoUpdateDTO, Weitereinfo>()
+				.ForMember(p => p.Id, opt => opt.MapFrom(u => u.Id))
+				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
+
 			CreateMap<Weitereinfo, WeitereInfosReadDTO>()
 				.ForMember(p => p.Id, opt => opt.MapFrom(u => u.Id))
 				.ForMember(p => p.Code, opt => opt.MapFrom(u => u.Code))

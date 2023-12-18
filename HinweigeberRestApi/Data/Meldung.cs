@@ -16,8 +16,8 @@ namespace HinweigeberRestApi.Data
         public string Code { get; set; }
         public DateTime CreateDate { get; set; }
         public bool isFinished { get; set; }
-        public int PartnerId { get; set; }
-        virtual public ICollection<Massnahme> Massnahmen { get; set; }
+        public Guid PartnerId { get; set; } = Guid.Empty;
+		virtual public ICollection<Massnahme> Massnahmen { get; set; }
 		//virtual public ICollection<Weitereinfo> Weitereinfos { get; set; }
 	}
 }

@@ -7,6 +7,6 @@ namespace HinweigeberRestApi.Areas.Meldungen.Models
         public string Beschreibung { get; set; }
         public string CreateDate { get; set; }
         public bool isFinished { get; set; } = false;
-		public int PartnerId { get; set; }
-    }
+		public Guid PartnerId { get; set; } = Guid.Empty;
+	}
 }

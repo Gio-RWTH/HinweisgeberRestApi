@@ -33,11 +33,34 @@ namespace HinweigeberRestApi.Migrations
                     Beschreibung = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PartnerId = table.Column<int>(type: "int", nullable: false)
+                    isFinished = table.Column<bool>(type: "bit", nullable: false),
+                    PartnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meldungs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WeitereInfo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Beschreibung = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    MassnahmeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WeitereInfo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WeitereInfo_Massnahmes_MassnahmeId",
+                        column: x => x.MassnahmeId,
+                        principalTable: "Massnahmes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,6 +91,12 @@ namespace HinweigeberRestApi.Migrations
                 name: "IX_MassnahmeMeldung_MeldungenId",
                 table: "MassnahmeMeldung",
                 column: "MeldungenId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WeitereInfo_MassnahmeId",
+                table: "WeitereInfo",
+                column: "MassnahmeId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -76,10 +105,13 @@ namespace HinweigeberRestApi.Migrations
                 name: "MassnahmeMeldung");
 
             migrationBuilder.DropTable(
-                name: "Massnahmes");
+                name: "WeitereInfo");
 
             migrationBuilder.DropTable(
                 name: "Meldungs");
+
+            migrationBuilder.DropTable(
+                name: "Massnahmes");
         }
     }
 }

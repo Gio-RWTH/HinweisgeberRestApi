@@ -61,5 +61,23 @@ namespace HinweigeberRestApi.Areas.Meldungen.Controllers
 			return Ok(result.Result);
 		}
 
+		[HttpPost]
+		public async Task<IActionResult> UpdateMeldung([FromBody] MeldungUpdateDTO model)
+		{
+			var result = await _meldungenService.UpdateMeldung(model);
+			if (!result.IsSuccess)
+				return BadRequest(result.ErrorMessage);
+			return Ok(result);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> UpdateWeitereInfo([FromBody] WeitereInfoUpdateDTO model)
+		{
+			var result = await _meldungenService.UpdateWeitereInfo(model);
+			if (!result.IsSuccess)
+				return BadRequest(result.ErrorMessage);
+			return Ok(result);
+		}
+
 	}
 }
