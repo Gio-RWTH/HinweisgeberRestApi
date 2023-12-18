@@ -12,7 +12,7 @@ namespace HinweigeberRestApi.Areas.Meldungen.Mapper
                 .ForMember(p => p.Id, opt => opt.Ignore())
                 .ForMember(p => p.PartnerId, opt => opt.MapFrom(u => u.PartnerId))
                 .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))
-				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
+                .ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
 
 			CreateMap<MeldungUpdateDTO, Meldung>()
 	            .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))
@@ -24,7 +24,7 @@ namespace HinweigeberRestApi.Areas.Meldungen.Mapper
                 .ForMember(p => p.PartnerId, opt => opt.MapFrom(u => u.PartnerId))
                 .ForMember(p => p.isFinished, opt => opt.MapFrom(u => u.isFinished))
 				.ForMember(p => p.Massnahmen, opt => opt.MapFrom(u => u.Massnahmen))
-				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => u.CreateDate.ToShortDateString()))
+				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => u.CreateDate.ToString("dd.MM.yyyy HH:mm")))
                 .ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
         }
     }

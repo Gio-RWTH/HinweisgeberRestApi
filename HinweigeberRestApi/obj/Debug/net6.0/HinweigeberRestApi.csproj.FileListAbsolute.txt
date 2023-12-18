@@ -60,12 +60,6 @@ C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRes
 C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\staticwebassets\msbuild.HinweigeberRestApi.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\staticwebassets\msbuild.build.HinweigeberRestApi.props
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.HinweigeberRestApi.props
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.HinweigeberRestApi.props
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\refint\HinweigeberRestApi.dll
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\appsettings.json
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\HinweigeberRestApi.exe
@@ -140,3 +134,10 @@ C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestAp
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\HinweigeberRestApi.genruntimeconfig.cache
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\obj\Debug\net6.0\ref\HinweigeberRestApi.dll
 C:\Users\muzeb\source\repos\GitHub\GioRWTH\HinweisgeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Administrator1\source\repos\GithubNeu\HinweigeberRestApi\HinweigeberRestApi\bin\Debug\net6.0\ref\HinweigeberRestApi.dll

@@ -23,14 +23,13 @@ namespace HinweigeberRestApi.Areas.WeitereInfos.Mapper
 			CreateMap<Weitereinfo, WeitereInfosReadDTO>()
 				.ForMember(p => p.Id, opt => opt.MapFrom(u => u.Id))
 				.ForMember(p => p.Code, opt => opt.MapFrom(u => u.Code))
-				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => u.CreateDate.ToShortDateString()))
+				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => u.CreateDate.ToString("dd.MM.yyyy HH:mm")))
 				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
 
 			CreateMap<WeitereInfoAddDTO, Weitereinfo>()
 				.ForMember(p => p.Id, opt => opt.Ignore())
 				.ForMember(p => p.Code, opt => opt.MapFrom(u => u.Code))
 				.ForMember(p => p.MassnahmeId, opt => opt.MapFrom(u => u.MassnahmeId))
-				.ForMember(p => p.CreateDate, opt => opt.MapFrom(u => Convert.ToDateTime(u.CreateDate)))
 				.ForMember(p => p.Beschreibung, opt => opt.MapFrom(u => u.Beschreibung));
 		}
 	}

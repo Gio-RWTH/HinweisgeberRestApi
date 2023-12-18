@@ -7,6 +7,5 @@ namespace HinweigeberRestApi.Areas.Massnahmen.Models
 		public string Beschreibung { get; set; }
 		[StringLength(10)]
 		public string Code { get; set; }
-		public string CreateDate { get; set; }
 	}
 }

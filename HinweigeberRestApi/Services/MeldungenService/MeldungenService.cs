@@ -32,6 +32,7 @@ namespace HinweigeberRestApi.Services.MeldungenService
 			try
 			{
 				var meldung = _mapper.Map<Meldung>(model);
+				meldung.CreateDate = DateTime.Now;
 
 				var tmpCode = GenerateRandomDigits();
 				var tmpMeldung = await _repositoryContext.Get(x => x.Code == tmpCode);
@@ -86,6 +87,7 @@ namespace HinweigeberRestApi.Services.MeldungenService
 				var meldung = await _repositoryContext.Get(x => x.Code == model.Code);
 				var massnahme = _mapper.Map<Massnahme>(model);
 				massnahme.Code = model.Code;
+				massnahme.CreateDate = DateTime.Now;
 
 				meldung.Massnahmen.Add(massnahme);
 				await _repositoryContext.Update(meldung);
@@ -115,6 +117,7 @@ namespace HinweigeberRestApi.Services.MeldungenService
 				{
 					var weitereInfo = _mapper.Map<Weitereinfo>(model);
 					massnahme.WeitereInfo = weitereInfo;
+					massnahme.WeitereInfo.CreateDate = DateTime.Now;
 
 					await _repositoryMassnahmeContext.Update(massnahme);
 
