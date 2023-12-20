@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using HinweigeberRestApi.Areas.Massnahmen.Mapper;
 using HinweigeberRestApi.Data;
+using HinweigeberRestApi.Data.ContextFactory;
+using HinweigeberRestApi.Data.ContextFactory.MainContextDB;
 using HinweigeberRestApi.Repository;
 using HinweigeberRestApi.Services.MassnahmenService;
 using HinweigeberRestApi.Services.MeldungenService;
@@ -10,7 +12,8 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<HinweisDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+builder.Services.AddMemoryCache();
+builder.Services.AddDbContext<MainContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
 // Add services to the container.
 builder.Services.AddControllers()
@@ -22,7 +25,10 @@ builder.Services.AddControllers()
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IDbContextFactory<HinweisDbContext>, PartnerContextFactory>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -58,6 +64,9 @@ app.MapControllers();
 
 app.UseCors(x => x
 .SetIsOriginAllowed(_ => true)
+.WithOrigins(
+	"https://gfi-hinweisgeber.de",
+	"https://gfi-Hinweisgeber.de")
 	.AllowAnyMethod()
 	.AllowAnyHeader()
 	.AllowCredentials());
