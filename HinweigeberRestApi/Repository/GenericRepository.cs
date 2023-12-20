@@ -10,9 +10,9 @@ namespace HinweigeberRestApi.Repository
         private readonly HinweisDbContext _context;
         private readonly DbSet<T> _db;
 
-        public GenericRepository(HinweisDbContext context)
+        public GenericRepository(IDbContextFactory<HinweisDbContext> context)
         {
-            _context = context;
+            _context = context.CreateDbContext(); ;
             _db = _context.Set<T>();
         }
 
